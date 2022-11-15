@@ -1,0 +1,668 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --mainBg: #fff;
+  /* --mainBg: #d9d9d9; */
+  --mainBgTransA: rgba(255, 255, 255, 0.7);
+  --mainBgTransB: rgba(255, 255, 255, 0.4);
+  /* --mainBgTransA: rgba(217, 217, 217, 0.6); */
+  --mainBgTrans: rgba(255, 255, 255, 0);
+  --mainBgTrans80: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  --darkBgTrans20: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 125, 0, 0.4) 100%
+  );
+  /* --mainBgTrans: rgba(217, 217, 217, 0); */
+  --darkBrownBg: #2e2419;
+  --darkBg: #494a50;
+  /* --darkBg: #15171b; */
+  --secondTextDark: #9c969a;
+  /* --secondTextDark: #494d54; */
+  --altColor: #9f9f45;
+  --altColorDark: #777131;
+  /* --altColor: #bca68d; */
+  --bg: url("https://muhammadzpw.github.io/wedding/assets/img/bg.jpeg");
+  --bg1: url("https://muhammadzpw.github.io/wedding/assets/img/bg1.jpeg");
+  /* --bg2: url("https://muhammadzpw.github.io/wedding/assets/img/bg4.jpeg"); */
+  --bg2: url("https://muhammadzpw.github.io/wedding/assets/img/bg6.jpeg");
+  --bg5: url("https://muhammadzpw.github.io/wedding/assets/img/bg5.jpeg");
+  --bgGreen: linear-gradient(
+    180deg,
+    var(--altColorDark) 0%,
+    var(--altColorDark) 100%
+  );
+  --bgPaper: url("https://muhammadzpw.github.io/wedding/assets/img/bg-all.jpeg");
+  --bgFlower: url("https://muhammadzpw.github.io/wedding/assets/img/bg-card.jpeg");
+  --maxWidth: 745px;
+
+  --color-text: #fff;
+  --color-bg: #101010;
+  --color-link: #fff;
+  --color-link-hover: #0b44fb;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inconsolata", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Dancing Script", cursive;
+}
+
+body {
+  background-image: var(--bgGreen), var(--bg2);
+  background-blend-mode: overlay;
+  /* background-attachment: fixed; */
+  background-position: top center;
+  background-size: contain;
+  overflow: hidden;
+}
+
+.quran {
+  padding: 5em 1em;
+}
+.ayat {
+  margin: 1em 0;
+  direction: rtl;
+  font-family: fontArab;
+  font-size: 1.5rem;
+  line-height: 2;
+}
+
+.ayat .end {
+  font-size: 2.5rem;
+  margin: 0.6rem;
+}
+.terjemah {
+  font-style: italic;
+}
+
+.container {
+  background: var(--mainBg);
+  max-width: var(--maxWidth);
+  min-width: 350px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.menu-wrapper {
+  position: fixed;
+  width: 100%;
+  max-width: var(--maxWidth);
+  z-index: 101;
+  background: var(--darkBgTrans20), var(--bg5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: background-position 0.3s cubic-bezier(0.215, 0.61, 0.355, 1),
+    height 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.menu-wrapper.open {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-position: right bottom;
+  /* overflow: auto; */
+}
+.menu-wrapper.closed {
+  height: 0;
+  background-position: left top;
+}
+
+.menu-wrapper div {
+  /* z-index: 103; */
+  opacity: 0;
+  transform: translateY(-200%);
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.menu-wrapper .top-menu {
+  z-index: -5;
+  transform: translateY(-100px);
+  /* position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0; */
+  opacity: 1 !important;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.1em 3em;
+  background: var(--mainBgTrans80), var(--bg5) center center;
+  /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 10px; */
+  /* background-image: linear-gradient(180deg, var(--mainBg) 75%, rgba(217, 217, 217, 0) 100%); */
+  /* -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(5px); */
+  /* transition: background-position 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); */
+}
+
+.menu-wrapper.open .top-menu {
+  background-image: linear-gradient(
+    180deg,
+    rgba(217, 217, 217, 0) 75%,
+    rgba(217, 217, 217, 0) 100%
+  );
+
+  /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 75%, rgba(0, 0, 0, 0) 100%); */
+  background-position: center center;
+  color: var(--mainBg);
+  box-shadow: none;
+  /* transform: translateX(-50vw); */
+}
+
+.menu-wrapper.open div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-wrapper .logo {
+  padding: 2em;
+  /* padding-top: 3em; */
+  text-align: center;
+  /* background: radial-gradient(22.38% 43.6% at 50% 50%, rgba(188, 133, 68, 0.33) 0%, rgba(21, 23, 27, 0) 100%); */
+}
+
+.menu-wrapper .links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* height: 50vh; */
+  overflow: auto;
+  padding: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  flex-grow: 1;
+}
+
+.menu-wrapper .links .link-item {
+  counter-increment: menuitem;
+  font-size: 2.5rem;
+  letter-spacing: 0.25em;
+  text-transform: lowercase;
+  overflow: visible;
+  margin: 0.5rem 0;
+  padding: 0 0.5rem;
+  position: relative;
+  transition: color 0.3s;
+  color: white;
+  /* padding: 0.1em 0; */
+}
+
+.menu-wrapper .links .link-item:hover {
+  color: var(--secondTextDark);
+}
+
+.menu-wrapper .links .link-item::after {
+  content: "";
+  width: 100%;
+  top: 50%;
+  height: 6px;
+  background: var(--altColor);
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: 100% 50%;
+}
+
+.menu-wrapper .links .link-item:hover::after {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
+.menu-wrapper .links .link-item::before {
+  content: counters(menuitem, "", decimal-leading-zero);
+  position: absolute;
+  font-size: 0.75rem;
+  top: 25%;
+  left: -1.25rem;
+  letter-spacing: 0;
+  color: var(--secondTextDark);
+}
+
+.page {
+  text-align: center;
+  padding: 0 2em 0 3em;
+  line-height: 1.75;
+  position: relative;
+}
+
+.cover {
+  /* position: relative; */
+  padding-top: 64px;
+  background-image: linear-gradient(
+      180deg,
+      var(--mainBg) 40%,
+      var(--mainBgTrans) 100%
+    ),
+    var(--bgGreen), var(--bg5);
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 100%;
+  background-blend-mode: normal, overlay, normal;
+  /* min-height: 110vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 184px;
+  min-height: 106vh;
+}
+.cover .content {
+  z-index: 100;
+}
+.cover .logo {
+  margin: 3em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+}
+
+.cover .weddingDay {
+  margin: -1.5em 0 1.5em 0;
+}
+
+.cover .guest {
+  font-weight: bold;
+  margin-bottom: 4em;
+}
+.cover .guest .i {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 0.8rem;
+  margin-top: 1em;
+}
+.page .wave {
+  position: absolute;
+  /* opacity: 0.5; */
+  bottom: calc(-11vw);
+  width: 100%;
+  left: 0;
+}
+
+.profil {
+  background-image: linear-gradient(
+      180deg,
+      var(--mainBg) 10%,
+      var(--mainBgTransA) 50%,
+      var(--mainBg) 100%
+    ),
+    var(--bgGreen), var(--bg1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: normal, overlay, normal;
+}
+.profil,
+.paper {
+  background-image: linear-gradient(
+      180deg,
+      var(--mainBg) 0%,
+      var(--mainBgTransA) 15%,
+      var(--mainBgTransA) 85%,
+      var(--mainBg) 100%
+    ),
+    var(--bgPaper);
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+  background-blend-mode: normal, normal;
+}
+#profil {
+  background-image: linear-gradient(
+      180deg,
+      var(--mainBg) 10%,
+      var(--mainBgTransA) 50%,
+      var(--mainBg) 100%
+    ),
+    var(--bgGreen), var(--bg5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: normal, overlay, normal;
+}
+.profil .pasangan {
+  margin-bottom: 1em;
+}
+
+.profil .pasangan .decor {
+  margin-bottom: -86px;
+  mix-blend-mode: multiply;
+}
+
+.profil .pasangan .nama {
+  font-family: "Dancing Script", cursive;
+  font-size: 36px;
+}
+
+.acara {
+  /* background: #d4d1cc; */
+  background-image: linear-gradient(
+      180deg,
+      var(--mainBg) 10%,
+      var(--mainBgTransA) 50%,
+      var(--mainBg) 100%
+    ),
+    var(--bg5);
+  background-position: center;
+  background-size: contain;
+}
+
+.acara .event-item,
+.countdown {
+  padding: 3em 1em;
+  margin-bottom: 3em;
+  background-image: var(--mainBgTrans80), var(--bgPaper);
+  background-position: top center;
+  background-size: contain;
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px -3px var(--altColor);
+}
+.maxMd {
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.acara .event-item .decor {
+  margin-top: -84px;
+}
+
+.acara .event-item .nama {
+  font-weight: bold;
+}
+.acara .event-item .jam {
+  font-size: 1.5em;
+  padding: 0.5em;
+}
+.acara #gmap {
+  width: 100%;
+  height: 350px;
+}
+
+.acara .show-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.acara .countdown {
+  padding: 1em;
+  margin: 0.5em;
+}
+.countdown .value {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.adab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+.adab .item {
+  padding: 0.75em;
+  counter-increment: adabitem;
+  /* text-transform: lowercase; */
+  overflow: visible;
+  position: relative;
+}
+.adab .item::before {
+  content: counters(adabitem, "", decimal-leading-zero);
+  position: absolute;
+  font-size: 0.75rem;
+  top: 25%;
+  left: -0.5rem;
+  letter-spacing: 0;
+  color: var(--secondTextDark);
+}
+
+.ucapan .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ucapan .input-wrapper {
+  margin: 1em 0;
+  width: 100%;
+}
+.ucapan .warning {
+  width: 100%;
+}
+
+.ucapan .input {
+  margin: auto;
+  width: 80%;
+  padding: 1em;
+  max-width: 80%;
+  min-width: 80%;
+  border-radius: 10px;
+  color: var(--darkBg);
+  font-family: "Inconsolata", monospace;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 1px 5px var(--altColorDark);
+  background: transparent;
+  backdrop-filter: blur(4px);
+  background-image: linear-gradient(
+      180deg,
+      var(--mainBgTransB) 0%,
+      var(--mainBgTransA) 100%
+    ),
+    var(--bgFlower);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  background-blend-mode: normal, normal;
+}
+.ucapan .warning .input {
+  width: 100%;
+  background: var(--bgFlower);
+  box-shadow: none;
+}
+.ucapan .input:focus {
+  box-shadow: 0 2px 10px var(--altColorDark);
+  outline: none;
+}
+.ucapan textarea {
+  min-height: 150px;
+}
+.ucapan .btn {
+  border-radius: 10px;
+}
+.ucapan-list {
+  max-height: 450px;
+  overflow: auto;
+  font-size: 14px;
+}
+.ucapan-list .event-item {
+  padding: 4.5em 1em 1em 1em;
+}
+
+.footer {
+  background-image: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0.2) 70%),
+    var(--bg5);
+  background-position: left;
+  background-size: cover;
+  padding: 32px;
+}
+/* 
+
+COMMON COMPONENT
+*/
+a {
+  text-decoration: none;
+}
+
+.btn {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1em 2em;
+  border: 2px solid;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+  text-transform: lowercase;
+  user-select: none;
+  color: #000;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  border: 3px solid;
+}
+
+@media only screen and (max-width: 745px) {
+  body {
+    background-image: none !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .ucapan .input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+  .footer .logodz {
+    width: 8vh;
+  }
+}
+@media only screen and (max-height: 550px) {
+  .cover .content {
+    margin-top: -64px;
+    overflow: auto;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 4em;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  .menu-wrapper .logo {
+    display: none;
+  }
+  .menu-wrapper .top-menu {
+    height: 32px;
+  }
+}
+
+.section-identifier {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 100;
+  top: 64px;
+  right: 0;
+  /* background-color: white; */
+  padding: 1em;
+  padding-left: 0;
+  font-size: 12px;
+  font-weight: bold;
+  width: max-content;
+  text-transform: uppercase;
+  text-indent: 10px;
+  letter-spacing: 10px;
+  transform: rotate(90deg) translateX(20px) translateY(25px);
+  transform-origin: center left;
+  /* opacity: 0.5; */
+  /* background: #fff; */
+}
+.section-identifier::after {
+  --line-width: 60px;
+  content: "";
+  display: block;
+  width: var(--line-width);
+  height: 3px;
+  background: #000;
+  left: calc(-1 * var(--line-width));
+  top: 50%;
+  position: absolute;
+}
+.section-identifier::before {
+  --line-width-before: 220px;
+  content: "";
+  display: block;
+  width: var(--line-width-before);
+  height: 20px;
+  background: #fff;
+  left: -90px;
+  /* left: calc(1 * var(--line-width-before)); */
+  top: 25%;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Page Loader */
+.loading::before {
+  content: "";
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+}
+
+.loading::after {
+  content: "";
+  position: fixed;
+  z-index: 100000;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0.4;
+  background: var(--altColorDark);
+  animation: loaderAnim 0.7s linear infinite alternate forwards;
+}
+
+@keyframes loaderAnim {
+  to {
+    opacity: 1;
+    transform: scale3d(0.5, 0.5, 1);
+  }
+}
