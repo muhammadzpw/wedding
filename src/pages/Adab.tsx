@@ -6,7 +6,7 @@ interface AdabData {
 function SvgIcons({
   icon,
   fill,
-  width
+  width,
 }: {
   icon: string;
   fill?: string;
@@ -122,38 +122,20 @@ export default function Adab() {
   const adabs: AdabData[] = [
     {
       nama: "Memakai masker",
-      icon: "masker"
+      icon: "masker",
     },
     {
       nama: "Mencuci tangan",
-      icon: "cucitangan"
+      icon: "cucitangan",
     },
     {
       nama: "Hindari salaman",
-      icon: "salaman"
+      icon: "salaman",
     },
-    {
-      nama: "Menjaga jarak",
-      icon: "jagajarak"
-    }
-  ];
-  const adabsWalimah: AdabData[] = [
-    {
-      nama: "Memperhatikan waktu sholat",
-      icon: ""
-    },
-    {
-      nama: "Berpakaian sopan dan menutup aurat",
-      icon: ""
-    },
-    {
-      nama: "Memperhatikan adab makan dan minum",
-      icon: ""
-    },
-    {
-      nama: "Mendoakan kedua mempelai",
-      icon: ""
-    }
+    // {
+    //   nama: "Menjaga jarak",
+    //   icon: "jagajarak",
+    // },
   ];
   return (
     <>
@@ -174,21 +156,6 @@ export default function Adab() {
                 <div key={`prokes-${id}`} className="item ">
                   <div className="decor">
                     <SvgIcons icon={val.icon} fill="#9F9F45" width={100} />
-                  </div>
-                  <div>{val.nama}</div>
-                </div>
-              );
-            })}
-        </div>
-
-        <h2>Adab menghadiri walimatul 'urs</h2>
-        <div className="adab">
-          {adabsWalimah &&
-            adabsWalimah.map((val, id) => {
-              return (
-                <div key={`adab-${id}`} className="item">
-                  <div className="decor">
-                    <SvgIcons icon={val.icon} fill="#9F9F45" />
                   </div>
                   <div>{val.nama}</div>
                 </div>

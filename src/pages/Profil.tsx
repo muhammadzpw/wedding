@@ -1,47 +1,13 @@
 import { useSearchParams } from "react-router-dom";
+import { getDataPasangan } from "../data";
 import Bismillah from "../icons/Bismillah";
 import CircleDecor from "../icons/CircleDecor";
 
-interface DataPasangan {
-  nama: string;
-  ayah: string;
-  ibu: string;
-  jk: "Putra" | "Putri";
-}
 export default function Profil() {
   const [searchParams] = useSearchParams();
   const gelar = searchParams.get("g");
-  // const dataPasangan: DataPasangan[] = [
-  //   {
-  //     nama: "Dhita Ayu Affiah, M.Pd.",
-  //     ayah: "Donny Mulianto",
-  //     ibu: "Harlina, S.Pd.",
-  //     jk: "Putri"
-  //   },
-  //   {
-  //     nama: "Muhammad Zha'farudin P.W., M.Cs.",
-  //     ayah: "Drs. H. Bambang Puji Siswanto",
-  //     ibu: "Hj. Sri Wulan Cahyani, S.Pd.",
-  //     jk: "Putra"
-  //   }
-  // ];
-  const dataPasangan: DataPasangan[] = [
-    {
-      nama: "Dhita Ayu Affiah" + (gelar ? ", M.Pd." : ""),
-      ayah: (gelar ? "" : "Bapak ") + "Donny Mulianto",
-      ibu: (gelar ? "" : "Ibu ") + "Harlina" + (gelar ? ", S.Pd." : ""),
-      jk: "Putri"
-    },
-    {
-      nama: "Muhammad Zha'farudin Pudya Wardana" + (gelar ? ", M.Cs." : ""),
-      ayah: (gelar ? "Drs. H. " : "Bapak ") + "Bambang Puji Siswanto",
-      ibu:
-        (gelar ? "Hj. " : "Ibu ") +
-        "Sri Wulan Cahyani" +
-        (gelar ? ", S.Pd." : ""),
-      jk: "Putra"
-    }
-  ];
+
+  const dataPasangan = getDataPasangan(gelar);
   return (
     <>
       <section className="profil page" id="muqaddimah">
@@ -71,12 +37,13 @@ export default function Profil() {
           <Bismillah fill="black" />
         </div>
         <div>
-          {/* <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p> */}
+          <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
           <p></p>
           <p></p>
           <p>
-            Dengan memohon rahmat dan ridho Allah subhanahu wata’ala, kami
-            bermaksud menyelenggarakan pernikahan putra-putri kami,
+            Maha suci Allah yang telah menciptakan makhluk-Nya
+            berpasang-pasangan. Dengan memohon rahmat dan ridho Allah subhanahu
+            wata'ala, InsyaAllah kami akan menyelenggarakan acara pernikahan:
           </p>
         </div>
         {dataPasangan &&
@@ -89,8 +56,8 @@ export default function Profil() {
                 <div className="nama">{val.nama}</div>
                 <div className="keluarga">
                   <p>
-                    <strong>{val.jk}</strong> dari <br /> {val.ayah} dan
-                    <br /> {val.ibu}{" "}
+                    <strong>{val.jk}</strong> <br /> keluarga {val.ayah} dan{" "}
+                    {val.ibu}{" "}
                   </p>
                 </div>
                 {i === 0 && <div className="nama">&</div>}

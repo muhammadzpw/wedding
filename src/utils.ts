@@ -53,5 +53,6 @@ imagesLoaded(
   () => {
     console.log("Image Done");
     document.body.classList.remove("loading");
+    scrollTo("body");
   }
 );
