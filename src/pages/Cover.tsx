@@ -3,7 +3,12 @@ import { useSearchParams } from "react-router-dom";
 import Logo from "../Logo";
 import Bismillah from "../icons/Bismillah";
 import Wave from "../icons/Wave";
-import { enableScroll, displayMenu, displayFullscreen, scrollTo as scrollToId } from "../utils";
+import {
+  enableScroll,
+  displayMenu,
+  displayFullscreen,
+  scrollTo as scrollToId,
+} from "../utils";
 
 export default function Cover() {
   const [openned, setOpenned] = useState(false);
@@ -34,7 +39,9 @@ export default function Cover() {
         Yth.
         <div className="guest">
           {guestName || "Nama Tamu"}
-          <div className="i">mohon maaf jika terdapat kesalahan penulisan nama atau gelar</div>
+          <div className="i">
+            mohon maaf jika terdapat kesalahan penulisan nama atau gelar
+          </div>
         </div>
         <div className="weddingDay"></div>
         <div>

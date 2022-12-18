@@ -125,30 +125,31 @@ export default function Adab() {
       icon: "masker",
     },
     {
-      nama: "Mencuci tangan",
+      nama: "Mencuci tangan / Memakai hand sanitizer",
       icon: "cucitangan",
     },
     {
-      nama: "Hindari salaman",
+      nama: "Tidak berjabat tangan",
       icon: "salaman",
     },
-    // {
-    //   nama: "Menjaga jarak",
-    //   icon: "jagajarak",
-    // },
+    {
+      nama: "Menjaga jarak",
+      icon: "jagajarak",
+    },
   ];
   return (
     <>
-      <section className="paper page" id="adab">
-        <div className="section-identifier">adab</div>
+      <section className="paper page" id="prokes">
+        <div className="section-identifier">prokes</div>
 
-        <div style={{ height: 64 }}></div>
+        <div style={{ height: 32 }}></div>
+        <h2>Protokol Kesehatan</h2>
         <p>
-          Tanpa mengurangi rasa hormat, tamu undangan dimohon untuk
-          memperhatikan hal-hal berikut saat menghadiri acara:{" "}
+          Mengingat kondisi pandemi, kami menghimbau Bapak/Ibu/Saudara/i untuk
+          memperhatikan protokol kesehatan dalam rangka upaya pencegahan
+          penyebaran virus COVID-19.{" "}
         </p>
 
-        <h2>Mematuhi protokol kesehatan</h2>
         <div className="adab">
           {adabs &&
             adabs.map((val, id) => {

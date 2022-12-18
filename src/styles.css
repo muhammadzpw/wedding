@@ -447,6 +447,7 @@ body {
   /* text-transform: lowercase; */
   overflow: visible;
   position: relative;
+  max-width: 200px;
 }
 .adab .item::before {
   content: counters(adabitem, "", decimal-leading-zero);

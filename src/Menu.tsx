@@ -15,33 +15,33 @@ const Menu: React.FC = ({ children }) => {
   const links = [
     {
       display: "sampul",
-      target: "#sampul"
+      target: "#sampul",
     },
     {
       display: "muqaddimah",
-      target: "#muqaddimah"
+      target: "#muqaddimah",
     },
     {
       display: "profil",
-      target: "#profil"
+      target: "#profil",
     },
     {
       display: "acara",
-      target: "#acara"
+      target: "#acara",
     },
     {
-      display: "adab",
-      target: "#adab"
+      display: "prokes",
+      target: "#prokes",
     },
     {
       display: "doa",
-      target: "#doa"
+      target: "#doa",
     },
 
     {
       display: "pesan",
-      target: "#ucapan"
-    }
+      target: "#ucapan",
+    },
   ];
   return (
     <div className={clsx("menu-wrapper", open ? "open" : "closed")}>

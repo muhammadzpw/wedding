@@ -62,7 +62,7 @@ export default function Acara() {
         <div className="section-identifier">pesan</div>
 
         <div style={{ padding: "1em 0 0em" }}>
-          <h2>Pesan dan doa</h2>
+          <h2>Pesan dan Doa</h2>
         </div>
         <div className="ucapan-list">
           <div style={{ height: 32 }}></div>
