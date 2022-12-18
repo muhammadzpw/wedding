@@ -6,7 +6,7 @@ function formatNumber(x: number) {
 const DateTimeDisplay = ({
   value,
   type,
-  isDanger
+  isDanger,
 }: {
   value: number;
   type: string;
@@ -33,7 +33,7 @@ const ShowCounter = ({
   days,
   hours,
   minutes,
-  seconds
+  seconds,
 }: {
   days: number;
   hours: number;
@@ -57,19 +57,14 @@ const ShowCounter = ({
 
 const CountDownTimer = ({
   targetDate,
-  targetCloseDate
+  targetCloseDate,
 }: {
   targetDate: any;
   targetCloseDate: any;
 }) => {
   const [days, hours, minutes, seconds, countdown] = useCountdown(targetDate);
-  const [
-    daysClose,
-    hoursClose,
-    minutesClose,
-    secondsClose,
-    countdownClose
-  ] = useCountdown(targetCloseDate);
+  const [daysClose, hoursClose, minutesClose, secondsClose, countdownClose] =
+    useCountdown(targetCloseDate);
 
   if (countdown > 0) {
     return (
@@ -87,7 +82,7 @@ const CountDownTimer = ({
           target="_blank"
           rel="noreferrer"
         >
-          ingatkan acara
+          ingatkan saya
         </a>
       </>
     );

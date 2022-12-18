@@ -1,11 +1,9 @@
-import { useSearchParams } from "react-router-dom";
-import { getDataPasangan } from "../data";
+import { getDataPasangan, getGelar } from "../data";
 import Bismillah from "../icons/Bismillah";
 import CircleDecor from "../icons/CircleDecor";
 
 export default function Profil() {
-  const [searchParams] = useSearchParams();
-  const gelar = searchParams.get("g");
+  const gelar = getGelar();
 
   const dataPasangan = getDataPasangan(gelar);
   return (

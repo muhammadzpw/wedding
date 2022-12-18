@@ -1,3 +1,5 @@
+import { useSearchParams } from "react-router-dom";
+
 interface DataPasangan {
   nama: string;
   ayah: string;
@@ -30,3 +32,9 @@ export const getDataPasangan = (gelar: string | null): DataPasangan[] => {
     },
   ];
 };
+
+export function getGelar() {
+  const [searchParams] = useSearchParams();
+  const gelar = searchParams.get("g");
+  return gelar;
+}

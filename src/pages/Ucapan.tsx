@@ -1,6 +1,7 @@
 import Form from "../components/Form";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getDataPasangan, getGelar } from "../data";
 
 function Envelope({ width, fill }: { width: number; fill: string }) {
   return (
@@ -18,6 +19,7 @@ interface UcapanData {
   pesan: string;
   timestamp?: any;
 }
+
 function shuffle(array: any[]) {
   let currentIndex = array.length,
     randomIndex;
@@ -31,7 +33,7 @@ function shuffle(array: any[]) {
     // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
-      array[currentIndex]
+      array[currentIndex],
     ];
   }
 
@@ -53,21 +55,6 @@ export default function Acara() {
   useEffect(() => {
     fetchData();
   }, []);
-  // const dataUcapan: UcapanData[] = [
-  //   {
-  //     nama: "Fulan",
-  //     pesan: "Selamat yaa..."
-  //   },
-  //   {
-  //     nama: "Fulanah",
-  //     pesan: "Yeey..."
-  //   },
-  //   {
-  //     nama: "Fulan A",
-  //     pesan:
-  //       "Yeey... Aasdjahs dljkash a askdjasd lkjsadh   akldjs askdjha skdjhaskdjhaskjdhal sdalkdjshas  asdkjhas dkljshad lakdjsh alkjsdh askdjh "
-  //   }
-  // ];
 
   return (
     <>
@@ -75,22 +62,24 @@ export default function Acara() {
         <div className="section-identifier">pesan</div>
 
         <div style={{ padding: "1em 0 0em" }}>
-          <h2>Tulis pesan dan doa</h2>
+          <h2>Pesan dan doa</h2>
         </div>
         <div className="ucapan-list">
           <div style={{ height: 32 }}></div>
           {dataUcapan &&
-            shuffle(dataUcapan).filter((val) => (val.nama && val.pesan)).map((val, id) => {
-              return (
-                <div key={`ucapan-${id}`} className="event-item maxMd">
-                  <div className="decor">
-                    <Envelope fill="#9F9F45" width={32} />
+            shuffle(dataUcapan)
+              .filter((val) => val.nama && val.pesan)
+              .map((val, id) => {
+                return (
+                  <div key={`ucapan-${id}`} className="event-item maxMd">
+                    <div className="decor">
+                      <Envelope fill="#9F9F45" width={32} />
+                    </div>
+                    <div className="nama">{val.nama}</div>
+                    <div className="ucapan">{val.pesan}</div>
                   </div>
-                  <div className="nama">{val.nama}</div>
-                  <div className="ucapan">{val.pesan}</div>
-                </div>
-              );
-            })}
+                );
+              })}
         </div>
         <Form refreshData={fetchData} />
         <div style={{ height: 32 }}></div>
@@ -101,7 +90,19 @@ export default function Acara() {
           Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
           berkenan hadir untuk memberikan doa dan restu.
         </p>
+        <div style={{ height: 32 }}></div>
+        <p>Wassalamu'alaikum warahmatullahi wabarakatuh.</p>
+        <div style={{ height: 32 }}></div>
 
+        <p>Kami yang berbahagia,</p>
+        {getDataPasangan(getGelar()).map((data, i) => (
+          <div key={`keluarga-${i}`}>
+            Keluarga {data.ayah} dan {data.ibu}
+          </div>
+        ))}
+        <p></p>
+
+        <div style={{ height: 32 }}></div>
         <div className="ayat" style={{ fontSize: "1.1em" }}>
           جَزَاكُمُ اللهُ خَيْرًا
         </div>
