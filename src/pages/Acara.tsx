@@ -77,7 +77,6 @@ export default function Acara() {
           title="gmap"
           id="gmap"
           style={{ border: 0 }}
-          allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

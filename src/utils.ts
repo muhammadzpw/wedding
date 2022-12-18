@@ -35,16 +35,17 @@ export const displayFullscreen = (enable: boolean) => {
     return;
   }
   const elem: HTMLElementExtended = document.documentElement;
-
+  /*
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.webkitRequestFullscreen) {
-    /* Safari */
+    // Safari 
     elem.webkitRequestFullscreen();
   } else if (elem.msRequestFullscreen) {
-    /* IE11 */
+    // IE11 
     elem.msRequestFullscreen();
   }
+  */
 };
 
 imagesLoaded(
