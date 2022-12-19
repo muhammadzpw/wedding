@@ -57,3 +57,9 @@ imagesLoaded(
     scrollTo("body");
   }
 );
+
+export const playAudio = () => {
+  const audioElemt = document.querySelector<HTMLAudioElement>("#nasyid");
+  if (!audioElemt) return;
+  audioElemt.play();
+};

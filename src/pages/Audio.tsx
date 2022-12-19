@@ -39,15 +39,17 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div id="sound" onClick={togglePlay} className={play ? "play" : ""}>
-      <audio
-        ref={audioRef}
-        src={`${process.env.PUBLIC_URL}/assets/nasyid.mp3`}
-        loop
-        autoPlay
-        muted={true}
-      />
-      <SoundIcon active={play} />
-    </div>
+    <></>
+    // <div id="sound" onClick={togglePlay} className={play ? "play" : ""}>
+    //   <audio
+    //     id="nasyid"
+    //     ref={audioRef}
+    //     src={`${process.env.PUBLIC_URL}/assets/nasyid.mp3`}
+    //     loop
+    //     autoPlay
+    //     muted={true}
+    //   />
+    //   <SoundIcon active={play} />
+    // </div>
   );
 }

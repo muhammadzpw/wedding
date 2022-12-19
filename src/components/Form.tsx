@@ -2,8 +2,13 @@ import { useRef, useState } from "react";
 import { scrollTo as scrollToId } from "../utils";
 
 import axios from "axios";
+import { UcapanData } from "../pages/Ucapan";
 
-export default function Form({ refreshData }: { refreshData: () => void }) {
+export default function Form({
+  addData,
+}: {
+  addData: (pesan: UcapanData) => void;
+}) {
   const [nama, setNama] = useState<string>("");
   const [pesan, setPesan] = useState<string>("");
   const [warning, setWarning] = useState<string>("");
@@ -42,7 +47,12 @@ export default function Form({ refreshData }: { refreshData: () => void }) {
     } catch (error) {
       console.error(error);
     }
-    refreshData();
+    addData({
+      nama,
+      pesan,
+      timestamp: Date.now().toString(),
+    });
+
     scrollToId("#ucapan");
     giveAlert("Jazakallahu khayran atas pesan dan doa yang disampaikan");
   };

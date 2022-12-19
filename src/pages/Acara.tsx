@@ -40,6 +40,7 @@ export default function Acara() {
         variants={fadeUpVariantWithChilds}
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         style={{ padding: "2em 0 0em" }}
       >
         <Ring fill="black" />
@@ -53,7 +54,12 @@ export default function Acara() {
           Hitung Mundur Acara
         </h2>
       </m.div>
-      <m.div variants={fadeLeftVariant} initial="hidden" whileInView="visible">
+      <m.div
+        variants={fadeLeftVariant}
+        initial="hidden"
+        viewport={{ once: true }}
+        whileInView="visible"
+      >
         <CountDownTimer
           targetDate={targetDate.getTime()}
           targetCloseDate={targetCloseDate.getTime()}
@@ -72,6 +78,7 @@ export default function Acara() {
               variants={fadeUpVariant}
               initial="hidden"
               whileInView="visible"
+              viewport={{ once: true }}
               key={`acara-${id}`}
               className="event-item maxMd"
             >

@@ -8,6 +8,7 @@ import {
   displayMenu,
   displayFullscreen,
   scrollTo as scrollToId,
+  playAudio,
 } from "../utils";
 import { m } from "framer-motion";
 import { fadeLeftVariant } from "../motions";
@@ -102,6 +103,7 @@ export default function Cover() {
               onClick={() => {
                 setOpenned(true);
                 scrollToId("#muqaddimah");
+                playAudio();
               }}
               whileHover={{ scale: 2 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}

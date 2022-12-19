@@ -15,7 +15,7 @@ function Envelope({ width, fill }: { width: number; fill: string }) {
   );
 }
 
-interface UcapanData {
+export interface UcapanData {
   nama: string;
   pesan: string;
   timestamp?: any;
@@ -61,6 +61,10 @@ export default function Acara() {
     fetchData();
   }, []);
 
+  const addData = (pesan: UcapanData) => {
+    setDataUcapan([...dataUcapan, pesan]);
+  };
+
   return (
     <>
       <section className="acara ucapan page" id="ucapan">
@@ -86,7 +90,7 @@ export default function Acara() {
                 );
               })}
         </div>
-        <Form refreshData={fetchData} />
+        <Form addData={addData} />
         <div style={{ height: 32 }}></div>
       </section>
       <section className="profil page">

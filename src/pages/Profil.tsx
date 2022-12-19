@@ -53,17 +53,28 @@ export default function Profil() {
           variants={fadeUpVariant}
           initial="hidden"
           whileInView="visible"
+          viewport={{ once: true }}
           style={{ padding: "6em 0 3em" }}
         >
           <Bismillah fill="black" />
         </m.div>
         <div>
-          <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
+          <m.p
+            variants={fadeUpVariant}
+            initial="hidden"
+            viewport={{ once: true }}
+            whileInView="visible"
+          >
             Assalamu’alaikum Warahmatullahi Wabarakatuh
           </m.p>
           <p></p>
           <p></p>
-          <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
+          <m.p
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             Maha suci Allah yang telah menciptakan makhluk-Nya
             berpasang-pasangan. Dengan memohon rahmat dan ridho Allah subhanahu
             wata'ala, InsyaAllah kami akan menyelenggarakan acara pernikahan:
@@ -77,6 +88,7 @@ export default function Profil() {
                 initial="hidden"
                 whileInView="visible"
                 key={`pasangan-${i}`}
+                viewport={{ once: true }}
                 className="pasangan"
               >
                 <div className="decor">
