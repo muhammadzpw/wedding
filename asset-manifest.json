@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.css": "https://muhammadzpw.github.io/wedding/static/css/main.d462d4c0.chunk.css",
-    "main.js": "https://muhammadzpw.github.io/wedding/static/js/main.f610036e.chunk.js",
-    "main.js.map": "https://muhammadzpw.github.io/wedding/static/js/main.f610036e.chunk.js.map",
-    "runtime-main.js": "https://muhammadzpw.github.io/wedding/static/js/runtime-main.fa8e3dde.js",
-    "runtime-main.js.map": "https://muhammadzpw.github.io/wedding/static/js/runtime-main.fa8e3dde.js.map",
-    "static/js/2.beba7fdd.chunk.js": "https://muhammadzpw.github.io/wedding/static/js/2.beba7fdd.chunk.js",
-    "static/js/2.beba7fdd.chunk.js.map": "https://muhammadzpw.github.io/wedding/static/js/2.beba7fdd.chunk.js.map",
+    "main.css": "https://muhammadzpw.github.io/wedding/static/css/main.b75c9790.css",
+    "main.js": "https://muhammadzpw.github.io/wedding/static/js/main.875fd131.js",
     "index.html": "https://muhammadzpw.github.io/wedding/index.html",
-    "static/css/main.d462d4c0.chunk.css.map": "https://muhammadzpw.github.io/wedding/static/css/main.d462d4c0.chunk.css.map",
-    "static/js/2.beba7fdd.chunk.js.LICENSE.txt": "https://muhammadzpw.github.io/wedding/static/js/2.beba7fdd.chunk.js.LICENSE.txt"
+    "main.b75c9790.css.map": "https://muhammadzpw.github.io/wedding/static/css/main.b75c9790.css.map",
+    "main.875fd131.js.map": "https://muhammadzpw.github.io/wedding/static/js/main.875fd131.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.fa8e3dde.js",
-    "static/js/2.beba7fdd.chunk.js",
-    "static/css/main.d462d4c0.chunk.css",
-    "static/js/main.f610036e.chunk.js"
+    "static/css/main.b75c9790.css",
+    "static/js/main.875fd131.js"
   ]
 }
