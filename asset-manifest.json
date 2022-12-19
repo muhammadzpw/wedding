@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "https://muhammadzpw.github.io/wedding/static/css/main.a4f5227c.css",
-    "main.js": "https://muhammadzpw.github.io/wedding/static/js/main.b9d5ce7f.js",
+    "main.css": "https://muhammadzpw.github.io/wedding/static/css/main.2a16dbea.css",
+    "main.js": "https://muhammadzpw.github.io/wedding/static/js/main.7ace62d6.js",
     "index.html": "https://muhammadzpw.github.io/wedding/index.html",
-    "main.a4f5227c.css.map": "https://muhammadzpw.github.io/wedding/static/css/main.a4f5227c.css.map",
-    "main.b9d5ce7f.js.map": "https://muhammadzpw.github.io/wedding/static/js/main.b9d5ce7f.js.map"
+    "main.2a16dbea.css.map": "https://muhammadzpw.github.io/wedding/static/css/main.2a16dbea.css.map",
+    "main.7ace62d6.js.map": "https://muhammadzpw.github.io/wedding/static/js/main.7ace62d6.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4f5227c.css",
-    "static/js/main.b9d5ce7f.js"
+    "static/css/main.2a16dbea.css",
+    "static/js/main.7ace62d6.js"
   ]
 }
