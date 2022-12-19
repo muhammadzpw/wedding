@@ -1,7 +1,8 @@
 import Form from "../components/Form";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { getDataPasangan, getGelar } from "../data";
+import { getDataPasangan, getGelar, isDevelopment } from "../data";
+import DecorativeDivider from "../icons/DecorativeDivider";
 
 function Envelope({ width, fill }: { width: number; fill: string }) {
   return (
@@ -43,6 +44,10 @@ function shuffle(array: any[]) {
 export default function Acara() {
   const [dataUcapan, setDataUcapan] = useState<UcapanData[]>([]);
   const fetchData = async () => {
+    if (isDevelopment()) {
+      return;
+    }
+
     try {
       const resp = await axios.get(
         "https://api.sheety.co/97b073c15ac0ff0288b0adbaaa059b24/undangan/kirimanUcapan"
@@ -90,17 +95,16 @@ export default function Acara() {
           Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
           berkenan hadir untuk memberikan doa dan restu.
         </p>
-        <div style={{ height: 32 }}></div>
+        <DecorativeDivider />
         <p>Wassalamu'alaikum warahmatullahi wabarakatuh.</p>
-        <div style={{ height: 32 }}></div>
+        <div style={{ height: 16 }}></div>
 
         <p>Kami yang berbahagia,</p>
         {getDataPasangan(getGelar()).map((data, i) => (
           <div key={`keluarga-${i}`}>
-            Keluarga {data.ayah} dan {data.ibu}
+            Kel. {data.ayah} & {data.ibu}
           </div>
         ))}
-        <p></p>
 
         <div style={{ height: 32 }}></div>
         <div className="ayat" style={{ fontSize: "1.1em" }}>

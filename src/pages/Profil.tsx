@@ -1,6 +1,8 @@
 import { getDataPasangan, getGelar } from "../data";
 import Bismillah from "../icons/Bismillah";
 import CircleDecor from "../icons/CircleDecor";
+import { m } from "framer-motion";
+import { fadeLeftVariant, fadeUpVariant } from "../motions";
 
 export default function Profil() {
   const gelar = getGelar();
@@ -12,42 +14,71 @@ export default function Profil() {
         <div className="section-identifier">muqaddimah</div>
 
         <div className="quran maxMd">
-          <strong>QS. Ar-Rum Ayat 21</strong>
-          <div className="ayat">
+          <m.strong
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+          >
+            QS. Ar-Rum Ayat 21
+          </m.strong>
+          <m.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            className="ayat"
+          >
             وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا
             لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً
             ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
             {/* <span className="end">{"\u06DD"}٢١</span> */}
-          </div>
-          <div className="terjemah">
+          </m.div>
+          <m.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            className="terjemah"
+          >
             "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan
             pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu
             merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan
             kasih sayang. Sesungguhnya pada yang demikian itu benar-benar
             terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
-          </div>
+          </m.div>
         </div>
       </section>
       <section className="profil page" id="profil">
         <div className="section-identifier">profil</div>
 
-        <div style={{ padding: "6em 0 3em" }}>
+        <m.div
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          style={{ padding: "6em 0 3em" }}
+        >
           <Bismillah fill="black" />
-        </div>
+        </m.div>
         <div>
-          <p>Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+          <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
+            Assalamu’alaikum Warahmatullahi Wabarakatuh
+          </m.p>
           <p></p>
           <p></p>
-          <p>
+          <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
             Maha suci Allah yang telah menciptakan makhluk-Nya
             berpasang-pasangan. Dengan memohon rahmat dan ridho Allah subhanahu
             wata'ala, InsyaAllah kami akan menyelenggarakan acara pernikahan:
-          </p>
+          </m.p>
         </div>
         {dataPasangan &&
           dataPasangan.map((val, i) => {
             return (
-              <div key={`pasangan-${i}`} className="pasangan">
+              <m.div
+                variants={fadeLeftVariant}
+                initial="hidden"
+                whileInView="visible"
+                key={`pasangan-${i}`}
+                className="pasangan"
+              >
                 <div className="decor">
                   <CircleDecor fill="#9f9f45" />
                 </div>
@@ -59,7 +90,7 @@ export default function Profil() {
                   </p>
                 </div>
                 {i === 0 && <div className="nama">&</div>}
-              </div>
+              </m.div>
             );
           })}
 

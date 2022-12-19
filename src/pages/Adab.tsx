@@ -1,3 +1,6 @@
+import { m } from "framer-motion";
+import { fadeUpVariant, fadeUpVariantWithChilds } from "../motions";
+
 interface AdabData {
   nama: string;
   icon: string;
@@ -150,36 +153,57 @@ export default function Adab() {
           penyebaran virus COVID-19.{" "}
         </p>
 
-        <div className="adab">
+        <m.div
+          variants={fadeUpVariantWithChilds}
+          initial="hidden"
+          whileInView="visible"
+          className="adab"
+        >
           {adabs &&
             adabs.map((val, id) => {
               return (
-                <div key={`prokes-${id}`} className="item ">
+                <m.div
+                  variants={fadeUpVariantWithChilds}
+                  key={`prokes-${id}`}
+                  className="item "
+                >
                   <div className="decor">
                     <SvgIcons icon={val.icon} fill="#9F9F45" width={100} />
                   </div>
                   <div>{val.nama}</div>
-                </div>
+                </m.div>
               );
             })}
-        </div>
+        </m.div>
       </section>
       <section className="page paper shadow" id="doa">
         <div className="section-identifier">doa</div>
 
         <div className="quran maxMd">
-          <h2>Doa untuk Kedua Mempelai</h2>
-          <div className="ayat">
+          <m.h2 variants={fadeUpVariant} initial="hidden" whileInView="visible">
+            Doa untuk Kedua Mempelai
+          </m.h2>
+          <m.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            className="ayat"
+          >
             بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِى
             خَيْرٍ
             {/* <span className="end">{"\u06DD"}٢١</span> */}
-          </div>
-          <div className="terjemah">
+          </m.div>
+          <m.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            className="terjemah"
+          >
             “Semoga Allah memberkahimu ketika bahagia dan ketika susah dan
             mengumpulkan kalian berdua dalam kebaikan.”
             <br />
             (HR. Abu Daud, no. 2130)
-          </div>
+          </m.div>
         </div>
       </section>
     </>

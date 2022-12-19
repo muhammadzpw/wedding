@@ -38,3 +38,7 @@ export function getGelar() {
   const gelar = searchParams.get("g");
   return gelar;
 }
+
+export const isDevelopment = () => {
+  return process.env["NODE_ENV"] === "development";
+};

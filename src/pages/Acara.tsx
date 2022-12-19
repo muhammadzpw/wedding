@@ -1,5 +1,11 @@
+import { m } from "framer-motion";
 import CountDownTimer from "../components/CountDownTimer";
 import Ring from "../icons/Ring";
+import {
+  fadeLeftVariant,
+  fadeUpVariant,
+  fadeUpVariantWithChilds,
+} from "../motions";
 
 interface AcaraData {
   nama: string;
@@ -30,7 +36,12 @@ export default function Acara() {
   return (
     <section className="acara page" id="acara">
       <div className="section-identifier">Acara</div>
-      <div style={{ padding: "2em 0 0em" }}>
+      <m.div
+        variants={fadeUpVariantWithChilds}
+        initial="hidden"
+        whileInView="visible"
+        style={{ padding: "2em 0 0em" }}
+      >
         <Ring fill="black" />
         <h2
           style={{
@@ -41,29 +52,39 @@ export default function Acara() {
         >
           Hitung Mundur Acara
         </h2>
-      </div>
-      <CountDownTimer
-        targetDate={targetDate.getTime()}
-        targetCloseDate={targetCloseDate.getTime()}
-      />
+      </m.div>
+      <m.div variants={fadeLeftVariant} initial="hidden" whileInView="visible">
+        <CountDownTimer
+          targetDate={targetDate.getTime()}
+          targetCloseDate={targetCloseDate.getTime()}
+        />
+      </m.div>
       <br />
       <br />
       <br />
       <br />
       <br />
+
       {dataAcara &&
         dataAcara.map((val, id) => {
           return (
-            <div key={`acara-${id}`} className="event-item maxMd">
+            <m.div
+              variants={fadeUpVariant}
+              initial="hidden"
+              whileInView="visible"
+              key={`acara-${id}`}
+              className="event-item maxMd"
+            >
               <div className="decor">
                 <Ring fill="#9F9F45" />
               </div>
               <div className="nama">{val.nama}</div>
               <div className="tanggal">{val.tanggal}</div>
               <div className="jam">{val.jam}</div>
-            </div>
+            </m.div>
           );
         })}
+
       <div style={{ height: 20 }}></div>
       <div className="event-item">
         <div className="decor">
