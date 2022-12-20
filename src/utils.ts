@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import imagesLoaded from "imagesloaded";
@@ -63,3 +65,11 @@ export const playAudio = () => {
   if (!audioElemt) return;
   audioElemt.play();
 };
+
+const DATE_FORMAT = "YYYY-MM-DD";
+export const getToday = () => {
+  return dayjs().format(DATE_FORMAT);
+};
+dayjs.extend(relativeTime);
+
+export const TIMESTAMP_FORMAT = "MM/DD/YYYY HH:mm:ss";

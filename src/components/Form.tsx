@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
-import { scrollTo as scrollToId } from "../utils";
+import { scrollTo as scrollToId, TIMESTAMP_FORMAT } from "../utils";
 
 import axios from "axios";
 import { UcapanData } from "../pages/Ucapan";
+import dayjs from "dayjs";
 
 export default function Form({
   addData,
@@ -50,11 +51,11 @@ export default function Form({
     addData({
       nama,
       pesan,
-      timestamp: Date.now().toString(),
+      timestamp: dayjs().format(TIMESTAMP_FORMAT),
     });
 
     scrollToId("#ucapan");
-    giveAlert("Jazakallahu khayran atas pesan dan doa yang disampaikan");
+    giveAlert("Jazakumullahu khayran atas pesan dan doa yang disampaikan");
   };
   return (
     <div>
@@ -84,7 +85,7 @@ export default function Form({
           <textarea
             name="ucapan"
             onChange={(e) => setPesan(e.target.value)}
-            placeholder="Tuliskan pesan dan doa Anda di sini"
+            placeholder="Tuliskan pesan dan doa terbaik untuk kami"
             className="input"
             style={{ resize: "vertical" }}
             maxLength={255}

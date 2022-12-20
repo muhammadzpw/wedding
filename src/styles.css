@@ -543,12 +543,28 @@ body {
   border-radius: 10px;
 }
 .ucapan-list {
-  max-height: 450px;
+  max-height: 600px;
   overflow: auto;
   font-size: 14px;
 }
+
 .ucapan-list .event-item {
-  padding: 4.5em 1em 1em 1em;
+  padding: 1.2em 1.2em 1.2em 4.5em;
+  text-align: left;
+  /* box-shadow: none; */
+  margin-bottom: 1em;
+}
+.ucapan-list .decor {
+  margin-top: 0em !important;
+  margin-left: -3.5em;
+  margin-bottom: -3em;
+}
+.ucapan-list .nama {
+  color: var(--altColorDark);
+}
+.ucapan-list .time {
+  font-size: 0.8em;
+  color: var(--darkBg);
 }
 
 .footer {
@@ -584,6 +600,11 @@ a {
   border: 3px solid;
 }
 
+.maxLg {
+  max-width: 90%;
+  margin: auto;
+}
+
 @media only screen and (max-width: 745px) {
   body {
     background-image: none !important;
@@ -594,6 +615,10 @@ a {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 100% !important;
+  }
+
+  .maxLg {
+    max-width: 100% !important;
   }
 
   .footer .logodz {

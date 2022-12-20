@@ -42,6 +42,10 @@ const Menu: React.FC = ({ children }) => {
       display: "pesan",
       target: "#ucapan",
     },
+    {
+      display: "penutup",
+      target: "#penutup",
+    },
   ];
   return (
     <div className={clsx("menu-wrapper", open ? "open" : "closed")}>

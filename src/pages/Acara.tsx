@@ -51,7 +51,7 @@ export default function Acara() {
             marginTop: -12,
           }}
         >
-          Hitung Mundur Acara
+          Waktu Menuju Acara
         </h2>
       </m.div>
       <m.div

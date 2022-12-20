@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getDataPasangan, getGelar, isDevelopment } from "../data";
 import DecorativeDivider from "../icons/DecorativeDivider";
+import { getToday } from "../utils";
+import dayjs from "dayjs";
+import { m } from "framer-motion";
+import { fadeLeftVariant, fadeUpVariant } from "../motions";
 
 function Envelope({ width, fill }: { width: number; fill: string }) {
   return (
@@ -41,18 +45,37 @@ function shuffle(array: any[]) {
   return array;
 }
 
+const TODAY_KEY = "pesan" + getToday();
+function getTodayMessages() {
+  const todayMessages = localStorage.getItem(TODAY_KEY);
+  if (todayMessages) {
+    console.log(todayMessages);
+    return JSON.parse(todayMessages);
+  }
+}
+
+function setTodayMessages(messages: UcapanData[]) {
+  localStorage.setItem(TODAY_KEY, JSON.stringify(messages));
+}
+
 export default function Acara() {
   const [dataUcapan, setDataUcapan] = useState<UcapanData[]>([]);
   const fetchData = async () => {
-    if (isDevelopment()) {
+    const todayMessages = getTodayMessages();
+    if (todayMessages) {
+      setDataUcapan(todayMessages);
       return;
     }
 
+    if (isDevelopment()) {
+      return;
+    }
     try {
       const resp = await axios.get(
-        "https://api.sheety.co/97b073c15ac0ff0288b0adbaaa059b24/undangan/kirimanUcapan"
+        "https://api.sheety.co/5e879e16d62e17c33102a01cab8c05b1/pesandoa/kirimanUcapan"
       );
       setDataUcapan(resp.data.kirimanUcapan);
+      setTodayMessages(resp.data.kirimanUcapan);
     } catch (error) {
       console.error(error);
     }
@@ -62,7 +85,9 @@ export default function Acara() {
   }, []);
 
   const addData = (pesan: UcapanData) => {
-    setDataUcapan([...dataUcapan, pesan]);
+    const newTodayMessages = [...dataUcapan, pesan];
+    setDataUcapan(newTodayMessages);
+    setTodayMessages(newTodayMessages);
   };
 
   return (
@@ -73,47 +98,86 @@ export default function Acara() {
         <div style={{ padding: "1em 0 0em" }}>
           <h2>Pesan dan Doa</h2>
         </div>
+        <Form addData={addData} />
         <div className="ucapan-list">
-          <div style={{ height: 32 }}></div>
+          <div style={{ height: 48 }}></div>
+
           {dataUcapan &&
-            shuffle(dataUcapan)
+            dataUcapan
               .filter((val) => val.nama && val.pesan)
+              .sort(
+                (a, b) =>
+                  new Date(b.timestamp).getTime() -
+                  new Date(a.timestamp).getTime()
+              )
               .map((val, id) => {
                 return (
-                  <div key={`ucapan-${id}`} className="event-item maxMd">
+                  <m.div
+                    variants={fadeUpVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    // viewport={{ once: true }}
+                    key={val.timestamp}
+                    className="event-item maxLg"
+                  >
                     <div className="decor">
                       <Envelope fill="#9F9F45" width={32} />
                     </div>
                     <div className="nama">{val.nama}</div>
                     <div className="ucapan">{val.pesan}</div>
-                  </div>
+                    <div className="time">
+                      {Intl.DateTimeFormat("id", {
+                        dateStyle: "full",
+                        timeStyle: "medium",
+                      }).format(new Date(val.timestamp))}
+                    </div>
+                  </m.div>
                 );
               })}
         </div>
-        <Form addData={addData} />
         <div style={{ height: 32 }}></div>
       </section>
-      <section className="profil page">
+      <section className="profil page" id="penutup">
+        <div className="section-identifier">penutup</div>
+
         <div style={{ height: 32 }}></div>
-        <p>
-          Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
-          berkenan hadir untuk memberikan doa dan restu.
-        </p>
-        <DecorativeDivider />
-        <p>Wassalamu'alaikum warahmatullahi wabarakatuh.</p>
+        <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+          Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa dan restu.
+        </m.p>
+        <m.div variants={fadeUpVariant} initial="hidden" whileInView="visible">
+          <DecorativeDivider />
+        </m.div>
+        <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
+          Wassalamu'alaikum warahmatullahi wabarakatuh.
+        </m.p>
         <div style={{ height: 16 }}></div>
 
-        <p>Kami yang berbahagia,</p>
+        <m.p variants={fadeUpVariant} initial="hidden" whileInView="visible">
+          Kami yang berbahagia,
+        </m.p>
         {getDataPasangan(getGelar()).map((data, i) => (
-          <div key={`keluarga-${i}`}>
-            Kel. {data.ayah} & {data.ibu}
-          </div>
+          <m.div
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            key={`keluarga-${i}`}
+            style={{ marginTop: 8 }}
+          >
+            Keluarga <br /> {data.ayah} & {data.ibu}
+          </m.div>
         ))}
 
         <div style={{ height: 32 }}></div>
-        <div className="ayat" style={{ fontSize: "1.1em" }}>
+        <m.div
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          className="ayat"
+          style={{ fontSize: "1.1em" }}
+        >
           جَزَاكُمُ اللهُ خَيْرًا
-        </div>
+        </m.div>
 
         <div style={{ height: 64 }}></div>
       </section>

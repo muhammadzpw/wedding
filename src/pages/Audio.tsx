@@ -27,29 +27,25 @@ export default function AudioPlayer() {
     if (!audio) {
       return;
     }
-    console.log(audio);
     if (play) {
       audio.pause();
     } else {
-      console.log("play!");
-
       audio.play();
     }
     setPlay(!play);
   };
 
   return (
-    <></>
-    // <div id="sound" onClick={togglePlay} className={play ? "play" : ""}>
-    //   <audio
-    //     id="nasyid"
-    //     ref={audioRef}
-    //     src={`${process.env.PUBLIC_URL}/assets/nasyid.mp3`}
-    //     loop
-    //     autoPlay
-    //     muted={true}
-    //   />
-    //   <SoundIcon active={play} />
-    // </div>
+    <div id="sound" onClick={togglePlay} className={play ? "play" : ""}>
+      <audio
+        id="nasyid"
+        ref={audioRef}
+        src={`${process.env.PUBLIC_URL}/assets/nasyid.mp3`}
+        loop
+        autoPlay
+        muted={true}
+      />
+      <SoundIcon active={play} />
+    </div>
   );
 }

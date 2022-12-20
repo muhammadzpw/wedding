@@ -65,7 +65,7 @@ export default function Profil() {
             viewport={{ once: true }}
             whileInView="visible"
           >
-            Assalamu’alaikum Warahmatullahi Wabarakatuh
+            Assalamu’alaikum warahmatullahi wabarakatuh
           </m.p>
           <p></p>
           <p></p>
