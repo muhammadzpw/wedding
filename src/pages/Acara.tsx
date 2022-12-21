@@ -36,6 +36,37 @@ export default function Acara() {
   return (
     <section className="acara page" id="acara">
       <div className="section-identifier">Acara</div>
+      <m.p
+        variants={fadeUpVariantWithChilds}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan
+        kami yang Insya Allah akan diselenggarakan pada:
+      </m.p>
+      <br />
+
+      {dataAcara &&
+        dataAcara.map((val, id) => {
+          return (
+            <m.div
+              variants={fadeUpVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              key={`acara-${id}`}
+              className="event-item maxMd"
+            >
+              <div className="decor">
+                <Ring fill="#9F9F45" />
+              </div>
+              <div className="nama">{val.nama}</div>
+              <div className="tanggal">{val.tanggal}</div>
+              <div className="jam">{val.jam}</div>
+            </m.div>
+          );
+        })}
       <m.div
         variants={fadeUpVariantWithChilds}
         initial="hidden"
@@ -65,34 +96,7 @@ export default function Acara() {
           targetCloseDate={targetCloseDate.getTime()}
         />
       </m.div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      {dataAcara &&
-        dataAcara.map((val, id) => {
-          return (
-            <m.div
-              variants={fadeUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              key={`acara-${id}`}
-              className="event-item maxMd"
-            >
-              <div className="decor">
-                <Ring fill="#9F9F45" />
-              </div>
-              <div className="nama">{val.nama}</div>
-              <div className="tanggal">{val.tanggal}</div>
-              <div className="jam">{val.jam}</div>
-            </m.div>
-          );
-        })}
-
-      <div style={{ height: 20 }}></div>
+      <div style={{ height: 128 }}></div>
       <div className="event-item">
         <div className="decor">
           <h2 style={{ fontSize: "2em", margin: 10, color: "#9F9F45" }}>

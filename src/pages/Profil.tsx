@@ -77,34 +77,36 @@ export default function Profil() {
           >
             Maha suci Allah yang telah menciptakan makhluk-Nya
             berpasang-pasangan. Dengan memohon rahmat dan ridho Allah subhanahu
-            wata'ala, InsyaAllah kami akan menyelenggarakan acara pernikahan:
+            wata'ala, Insya Allah kami akan menyelenggarakan acara pernikahan:
           </m.p>
         </div>
-        {dataPasangan &&
-          dataPasangan.map((val, i) => {
-            return (
-              <m.div
-                variants={fadeLeftVariant}
-                initial="hidden"
-                whileInView="visible"
-                key={`pasangan-${i}`}
-                viewport={{ once: true }}
-                className="pasangan"
-              >
-                <div className="decor">
-                  <CircleDecor fill="#9f9f45" />
-                </div>
-                <div className="nama">{val.nama}</div>
-                <div className="keluarga">
-                  <p>
-                    <strong>{val.jk}</strong> <br /> keluarga {val.ayah} dan{" "}
-                    {val.ibu}{" "}
-                  </p>
-                </div>
-                {i === 0 && <div className="nama">&</div>}
-              </m.div>
-            );
-          })}
+        <div style={{ overflow: "hidden" }}>
+          {dataPasangan &&
+            dataPasangan.map((val, i) => {
+              return (
+                <m.div
+                  variants={fadeLeftVariant}
+                  initial="hidden"
+                  whileInView="visible"
+                  key={`pasangan-${i}`}
+                  viewport={{ once: true }}
+                  className="pasangan"
+                >
+                  <div className="decor">
+                    <CircleDecor fill="#9f9f45" />
+                  </div>
+                  <div className="nama">{val.nama}</div>
+                  <div className="keluarga">
+                    <p>
+                      <strong>{val.jk}</strong> <br /> keluarga {val.ayah} dan{" "}
+                      {val.ibu}{" "}
+                    </p>
+                  </div>
+                  {i === 0 && <div className="nama">&</div>}
+                </m.div>
+              );
+            })}
+        </div>
 
         <div style={{ height: 86 }}></div>
       </section>

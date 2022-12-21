@@ -148,8 +148,8 @@ export default function Adab() {
         <div style={{ height: 32 }}></div>
         <h2>Protokol Kesehatan</h2>
         <p>
-          Dalam rangka mencegah penyebaran COVID-19, kami menghimbau
-          Bapak/Ibu/Saudara/i untuk tetap memperhatikan protokol kesehatan:{" "}
+          Dalam rangka mencegah penyebaran COVID-19, Bapak/Ibu/Saudara/i
+          diharapkan untuk:
         </p>
 
         <m.div
