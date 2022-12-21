@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { getDataPasangan, getGelar, isDevelopment } from "../data";
 import DecorativeDivider from "../icons/DecorativeDivider";
-import { getToday } from "../utils";
+import { fetchAlternatives, getToday } from "../utils";
 import dayjs from "dayjs";
 import { m } from "framer-motion";
 import { fadeLeftVariant, fadeUpVariant } from "../motions";
@@ -71,9 +71,14 @@ export default function Acara() {
       return;
     }
     try {
-      const resp = await axios.get(
-        "https://api.sheety.co/5e879e16d62e17c33102a01cab8c05b1/pesandoa/kirimanUcapan"
-      );
+      const resp = await fetchAlternatives([
+        "https://api.sheety.co/5e879e16d62e17c33102a01cab8c05b1/pesandoa/kirimanUcapan",
+        "https://api.sheety.co/2031d9619289638630ded9bd21eaf710/pesandoa/kirimanUcapan",
+        "https://api.sheety.co/0c4c61ca216dfcd3d2800e640bac78fc/ucapandoaugm/keluarga/kirimanUcapan",
+      ]);
+      if (!resp) {
+        throw Error("No Data");
+      }
       setDataUcapan(resp.data.kirimanUcapan);
       setTodayMessages(resp.data.kirimanUcapan);
     } catch (error) {

@@ -12,9 +12,9 @@ export const getDataPasangan = (gelar: string | null): DataPasangan[] => {
   return [
     {
       nama: "Dhita Ayu Affiah" + (isGelarEnabled ? ", M.Pd." : ""),
-      ayah: (isGelarEnabled ? "" : "Bapak ") + "Donny Mulianto",
+      ayah: (isGelarEnabled ? "Bapak " : "Bapak ") + "Donny Mulianto",
       ibu:
-        (isGelarEnabled ? "" : "Ibu ") +
+        (isGelarEnabled ? "Ibu " : "Ibu ") +
         "Harlina" +
         (isGelarEnabled ? ", S.Pd." : ""),
       jk: "Putri pertama dari dua bersaudara",
@@ -23,9 +23,11 @@ export const getDataPasangan = (gelar: string | null): DataPasangan[] => {
       nama:
         "Muhammad Zha'farudin Pudya Wardana" +
         (isGelarEnabled ? ", M.Cs." : ""),
-      ayah: (isGelarEnabled ? "Drs. H. " : "Bapak ") + "Bambang Puji Siswanto",
+      ayah:
+        (isGelarEnabled ? "Bapak Drs. H. " : "Bapak ") +
+        "Bambang Puji Siswanto",
       ibu:
-        (isGelarEnabled ? "Hj. " : "Ibu ") +
+        (isGelarEnabled ? "Ibu Hj. " : "Ibu ") +
         "Sri Wulan Cahyani" +
         (isGelarEnabled ? ", S.Pd." : ""),
       jk: "Putra ketiga dari tiga bersaudara",
