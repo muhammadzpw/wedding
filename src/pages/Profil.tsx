@@ -19,6 +19,7 @@ export default function Profil() {
             initial="hidden"
             whileInView="visible"
           >
+            {/* QS. Adz-Dzariyyat Ayat 49 */}
             QS. Ar-Rum Ayat 21
           </m.strong>
           <m.div
@@ -31,6 +32,7 @@ export default function Profil() {
             لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً
             ۗاِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
             {/* <span className="end">{"\u06DD"}٢١</span> */}
+            {/* وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُوْنَ */}
           </m.div>
           <m.div
             variants={fadeUpVariant}
@@ -43,6 +45,8 @@ export default function Profil() {
             merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan
             kasih sayang. Sesungguhnya pada yang demikian itu benar-benar
             terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+            {/* "Segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat
+            (kebesaran Allah)." */}
           </m.div>
         </div>
       </section>
