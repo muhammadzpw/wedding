@@ -34,6 +34,7 @@
   /* --secondTextDark: #494d54; */
   --altColor: #9f9f45;
   --altColorDark: #777131;
+  --altColorDarkTrans: #77713158;
   /* --altColor: #bca68d; */
   --bg: url("https://muhammadzpw.github.io/wedding/assets/img/bg.jpeg");
   --bg1: url("https://muhammadzpw.github.io/wedding/assets/img/bg1.jpeg");
@@ -42,8 +43,8 @@
   --bg5: url("https://muhammadzpw.github.io/wedding/assets/img/bg5.jpeg");
   --bgGreen: linear-gradient(
     180deg,
-    var(--altColorDark) 0%,
-    var(--altColorDark) 100%
+    var(--altColorDarkTrans) 0%,
+    var(--altColorDarkTrans) 100%
   );
   --bgPaper: url("https://muhammadzpw.github.io/wedding/assets/img/bg-all.jpeg");
   --bgFlower: url("https://muhammadzpw.github.io/wedding/assets/img/bg-card.jpeg");
@@ -77,8 +78,8 @@ h5 {
 }
 
 body {
-  background-image: var(--bgGreen), var(--bg2);
-  background-blend-mode: overlay;
+  background-image: var(--bg2);
+  /* background-blend-mode: overlay, overlay, overlay; */
   /* background-attachment: fixed; */
   background-position: top center;
   background-size: contain;

@@ -78,7 +78,7 @@ export default function Acara() {
         viewport={{ once: true }}
       >
         Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan
-        kami yang Insya Allah akan diselenggarakan pada:
+        yang Insya Allah akan kami selenggarakan pada:
       </m.p>
       <br />
 

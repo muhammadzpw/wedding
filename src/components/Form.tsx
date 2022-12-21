@@ -85,7 +85,7 @@ export default function Form({
           <textarea
             name="ucapan"
             onChange={(e) => setPesan(e.target.value)}
-            placeholder="Tuliskan pesan dan doa terbaik untuk kami"
+            placeholder="Tuliskan pesan dan doa terbaik untuk Dhita & Zha'farudin"
             className="input"
             style={{ resize: "vertical" }}
             maxLength={255}
