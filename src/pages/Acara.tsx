@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { m } from "framer-motion";
 import CountDownTimer from "../components/CountDownTimer";
 import DecorativeDivider from "../icons/DecorativeDivider";
@@ -16,9 +17,8 @@ interface AcaraData {
   map?: string;
 }
 
-const targetDate = new Date("2022-12-31 08:00:00+0700");
-const targetCloseDate = new Date("2022-12-31 12:00:00+0700");
-
+const targetDate = dayjs("2022-12-31 08:00:00").toDate();
+const targetCloseDate = dayjs("2022-12-31 12:00:00").toDate();
 export default function Acara() {
   const dataAcara: AcaraData[] = [
     {
@@ -63,8 +63,8 @@ export default function Acara() {
           whileInView="visible"
         >
           <CountDownTimer
-            targetDate={targetDate.getTime()}
-            targetCloseDate={targetCloseDate.getTime()}
+            targetDate={targetDate}
+            targetCloseDate={targetCloseDate}
           />
         </m.div>
       </div>
