@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, PropsWithChildren } from "react";
 import HumIcon from "./icons/HumIcon";
 import Logo from "./Logo";
 
 import { enableScroll, scrollTo as scrollToId } from "./utils";
 
-const Menu: React.FC = ({ children }) => {
+const Menu: React.FC<PropsWithChildren> = ({ children }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
