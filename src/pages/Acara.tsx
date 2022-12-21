@@ -55,17 +55,19 @@ export default function Acara() {
           Waktu Menuju Acara
         </h2>
       </m.div>
-      <m.div
-        variants={fadeLeftVariant}
-        initial="hidden"
-        viewport={{ once: true }}
-        whileInView="visible"
-      >
-        <CountDownTimer
-          targetDate={targetDate.getTime()}
-          targetCloseDate={targetCloseDate.getTime()}
-        />
-      </m.div>
+      <div style={{ overflow: "hidden", padding: "1em 0" }}>
+        <m.div
+          variants={fadeLeftVariant}
+          initial="hidden"
+          viewport={{ once: true }}
+          whileInView="visible"
+        >
+          <CountDownTimer
+            targetDate={targetDate.getTime()}
+            targetCloseDate={targetCloseDate.getTime()}
+          />
+        </m.div>
+      </div>
       <br />
       <br />
       <br />
@@ -76,7 +78,7 @@ export default function Acara() {
         viewport={{ once: true }}
       >
         Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan
-        kami yang Insya Allah akan dilaksanakan pada:
+        kami yang Insya Allah akan diselenggarakan pada:
       </m.p>
       <br />
 

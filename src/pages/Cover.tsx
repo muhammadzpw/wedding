@@ -89,6 +89,8 @@ export default function Cover() {
           Sabtu, 31 Desember 2022
         </m.div>
         Yth.
+        <br />
+        Bapak/Ibu/Saudara/i
         <div className="guest">
           {guestName || "Nama Tamu"}
           <div className="i">
