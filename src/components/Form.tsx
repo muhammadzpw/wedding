@@ -4,6 +4,7 @@ import { scrollTo as scrollToId, TIMESTAMP_FORMAT } from "../utils";
 import axios from "axios";
 import { UcapanData } from "../pages/Ucapan";
 import dayjs from "dayjs";
+import { isDevelopment } from "../data";
 
 export default function Form({
   addData,
@@ -13,7 +14,7 @@ export default function Form({
   const [nama, setNama] = useState<string>("");
   const [pesan, setPesan] = useState<string>("");
   const [warning, setWarning] = useState<string>("");
-  // const [dataUcapan, setDataUcapan] = useState<UcapanData[]>([]);
+
   const formElement = useRef<HTMLFormElement>(null);
   const giveAlert = (message: string, timeout?: number) => {
     setWarning(message);
@@ -39,12 +40,11 @@ export default function Form({
     });
     const url = `${baseurl}?${s.toString()}`;
 
-    // const resp = await fetch(
-    //   "https://docs.google.com/forms/d/e/1FAIpQLSf5fSwDJAyHorK7WUvz9TL6u5qTRu9PVmoo1pEUxI17fLmzGg/formResponse?usp=pp_url&entry.1019179698=mzpw&entry.395114230=pesan+di+sini"
-    // );
     try {
-      const resp = await axios.post(url);
-      console.log(resp);
+      if (!isDevelopment()) {
+        const resp = await axios.post(url);
+        console.log(resp);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -54,16 +54,11 @@ export default function Form({
       timestamp: dayjs().format(TIMESTAMP_FORMAT),
     });
 
-    scrollToId("#ucapan");
+    scrollToId("#ucapan-formend");
     giveAlert("Jazakumullahu khayran atas pesan dan doa yang disampaikan");
   };
   return (
     <div>
-      {warning && (
-        <div className="input-wrapper warning">
-          <div className="input">{warning}</div>
-        </div>
-      )}
       <form
         ref={formElement}
         onSubmit={(e) => {
@@ -91,8 +86,14 @@ export default function Form({
             maxLength={255}
           ></textarea>
         </div>
-        <button className="btn">Kirim pesan dan doa</button>
+        {!warning && <button className="btn">Kirim pesan dan doa</button>}
       </form>
+      <div id="ucapan-formend" style={{ height: 32 }}></div>
+      {warning && (
+        <div className="input-wrapper warning">
+          <div className="input">{warning}</div>
+        </div>
+      )}
     </div>
   );
 }

@@ -55,7 +55,7 @@ export default function Acara() {
           Waktu Menuju Acara
         </h2>
       </m.div>
-      <div style={{ overflow: "hidden", padding: "1em 0" }}>
+      <div style={{ overflow: "hidden", padding: "1em 0", margin: "0 -2em" }}>
         <m.div
           variants={fadeLeftVariant}
           initial="hidden"
